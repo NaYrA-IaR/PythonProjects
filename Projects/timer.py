@@ -12,4 +12,4 @@ while(current_time+sec != int(time.time())):
 p = multiprocessing.Process(target=playsound, args=("your-audio-file-name",))
 p.start()
 input("press ENTER to stop playback")
-p.terminate()
+p.terminate()  
