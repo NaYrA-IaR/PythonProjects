@@ -21,10 +21,10 @@ actions.perform()
 # Login
 
 username = driver.find_element_by_name("username-103")
-username.send_keys("cache9 Username Here")
+username.send_keys("cache9-username-here")
 
 password = driver.find_element_by_id("user_password-103")
-password.send_keys("cache9 Password here")
+password.send_keys("cache9-password-here")
 
 driver.implicitly_wait(10)
 
@@ -32,20 +32,6 @@ login = driver.find_element_by_class_name("um-half")
 actions1 = ActionChains(driver)
 actions1.click(login)
 actions1.perform()
-
-# Tried login twice as it was showing error.
- '''
-username = driver.find_element_by_name("username-103")
-username.send_keys("cache9 Username Here")
-
-password = driver.find_element_by_id("user_password-103")
-password.send_keys("cache9 Password here")
-
-login = driver.find_element_by_class_name("um-half")
-actions1 = ActionChains(driver)
-actions1.click(login)
-actions1.perform()
-'''
 
 # Write Post Page
 
@@ -57,25 +43,35 @@ actions.perform()
 # Post Title
 
 post_title = driver.find_element_by_id("user-submitted-title")
-post_title.send_keys("Hello World From Bot")
+post_title.send_keys("Hello World From Bot")  # Add post title here.
 
 # Post Tag
 
 post_tag = driver.find_element_by_id("user-submitted-tags")
-post_tag.send_keys("Aryan Kumar Rai")
+post_tag.send_keys("Aryan Kumar Rai") # add names of all you want to tag.
 
 # Post Category
 
+post_cate = ["enter-category-here-as-list"] # e.g.['Prose', 'Gymkhana']
 post_category = driver.find_element_by_class_name("chosen-search-input")
-for i in range(9):
-	post_category.send_keys(Keys.DOWN)
-post_category.send_keys(Keys.RETURN)
+val = ["Alumni Corner", "Adieu", "Prep Guides", "Gymkhana", "Films and Media", "Groovz", "Others", "Sports", "Symphony", "Technical", "Udaan", "Students Corner", "Other", "Poetry", "Prose", "Tech Alert", "Uncategorized"]
 
+for p in post_cate:
+	n = 9
+	for i in range(len(val)):
+		if p == val[i]:
+			n = i+2
+			print(n , val[i])
+			break
+	for i in range(n):
+		post_category.send_keys(Keys.DOWN)
+	post_category.send_keys(Keys.RETURN)
+	val.remove(val[i])
 # Post Body
 
 driver.switch_to.frame(driver.find_element_by_id("uspcontent_ifr"))
 post_body = driver.find_element_by_id("tinymce")
-post_body.send_keys("Hello World!! This is Selenium Bot posting here for the first time.")
+post_body.send_keys("Hello World!! This is Selenium Bot posting here for the first time.") # Change this to the content of your post.
 driver.switch_to.default_content()
 
 # Submit Post
