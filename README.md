@@ -19,5 +19,5 @@ Unittest in Python.
 Automated Post For Cache9 Blog.  
 TicTacToe in python.
 Binary, Octal, Decimal, Hexadecimal converter in python.  
-Check if given word is palindrome.
-Tax Calculator.
+Check if given word is palindrome.  
+Tax Calculator.  
